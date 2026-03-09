@@ -2,8 +2,10 @@
 <html>
 
 <head>
+
 <title>Tech Fest Dashboard</title>
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -17,39 +19,43 @@
 
 </nav>
 
-<h1>📊 Tech Fest Control Dashboard</h1>
+<h1>TECH FEST CONTROL PANEL</h1>
+
+<div id="clock"></div>
+
+<div class="container">
 
 <div class="card">
+<h2>Participants</h2>
+<p>320 Students</p>
+</div>
 
-<table>
+<div class="card">
+<h2>Events</h2>
+<p>12 Competitions</p>
+</div>
 
-<tr>
-<th>Event</th>
-<th>Status</th>
-<th>Progress</th>
-</tr>
+<div class="card">
+<h2>Hackathon</h2>
+<p>Running</p>
+</div>
 
-<tr>
-<td>Coding Contest</td>
-<td class="running">Running</td>
-<td>80%</td>
-</tr>
-
-<tr>
-<td>Tech Quiz</td>
-<td>Preparing</td>
-<td>40%</td>
-</tr>
-
-<tr>
-<td>Robotics Demo</td>
-<td class="completed">Completed</td>
-<td>100%</td>
-</tr>
-
-</table>
+<div class="card">
+<h2>Workshops</h2>
+<p>AI • Robotics</p>
+</div>
 
 </div>
+
+<h2>Event Progress</h2>
+
+<div class="progress">
+<div class="bar" id="progressBar"></div>
+</div>
+
 <script src="script.js"></script>
+<script src="matrix.js"></script>
+<script src="radar.js"></script>
+
 </body>
 </html>
