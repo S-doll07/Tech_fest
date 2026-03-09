@@ -1,0 +1,94 @@
+body{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#020617,#0f172a,#020617);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+nav{
+background:#020617;
+padding:15px;
+box-shadow:0 0 15px cyan;
+}
+
+nav a{
+color:#00e5ff;
+margin:20px;
+text-decoration:none;
+font-size:18px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:white;
+text-shadow:0 0 10px cyan;
+}
+
+h1{
+font-size:45px;
+color:#00e5ff;
+text-shadow:0 0 10px cyan;
+animation:fadeIn 2s ease;
+}
+
+table{
+margin:auto;
+border-collapse:collapse;
+width:60%;
+background:#020617;
+box-shadow:0 0 15px cyan;
+}
+
+th,td{
+border:1px solid cyan;
+padding:12px;
+}
+
+tr:hover{
+background:#0f172a;
+}
+
+.running{
+color:yellow;
+animation:pulse 1s infinite;
+}
+
+.completed{
+color:lime;
+}
+
+.card{
+background:#020617;
+padding:30px;
+margin:30px auto;
+width:60%;
+border-radius:10px;
+box-shadow:0 0 15px cyan;
+animation:slideUp 1s ease;
+}
+
+/* Animations */
+
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
+}
+
+@keyframes slideUp{
+from{
+transform:translateY(40px);
+opacity:0;
+}
+to{
+transform:translateY(0);
+opacity:1;
+}
+}
+
+@keyframes pulse{
+0%{opacity:1}
+50%{opacity:0.5}
+100%{opacity:1}
+}
