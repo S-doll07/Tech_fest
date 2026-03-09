@@ -1,71 +1,107 @@
-// Live Clock
+document.body.classList.add("fade");
+
+/* CLOCK */
+
 function updateClock(){
-
-let now = new Date()
-
-let time = now.toLocaleTimeString()
-
-let clock = document.getElementById("clock")
-
+const now=new Date();
+const clock=document.getElementById("clock");
 if(clock){
-clock.innerText = "Time: " + time
+clock.innerText="⏱ "+now.toLocaleTimeString();
+}
+}
+setInterval(updateClock,1000);
+
+
+/* ROBOT GREETER */
+
+/* ROBOT GREETER FIX */
+
+let robotVoices = [];
+
+function loadVoices(){
+    robotVoices = speechSynthesis.getVoices();
+}
+
+speechSynthesis.onvoiceschanged = loadVoices;
+
+function robotGreeting(){
+
+const message = "Welcome to Tech Fest 2026. Innovation, coding and robotics start here.";
+
+if('speechSynthesis' in window){
+
+    const speech = new SpeechSynthesisUtterance(message);
+
+    speech.rate = 0.9;
+    speech.pitch = 1.1;
+    speech.volume = 1;
+
+    if(robotVoices.length > 0){
+        speech.voice = robotVoices[0];
+    }
+
+    speechSynthesis.cancel();
+    speechSynthesis.speak(speech);
+
+}else{
+
+    alert("Speech synthesis not supported in this browser.");
+
 }
 
 }
 
-setInterval(updateClock,1000)
+
+/* LEADERBOARD */
+
+let scores=[
+{name:"Team Alpha",score:120},
+{name:"Team Cyber",score:110},
+{name:"Team Matrix",score:95},
+{name:"Team Hackers",score:90}
+];
+
+function updateLeaderboard(){
+
+const table=document.getElementById("leaderboard");
+if(!table) return;
+
+table.innerHTML="";
+
+scores.forEach(team=>{
+
+const row=`
+<tr>
+<td>${team.name}</td>
+<td>${team.score}</td>
+</tr>
+`;
+
+table.innerHTML+=row;
+
+team.score+=Math.floor(Math.random()*5);
+
+});
+}
+
+setInterval(updateLeaderboard,3000);
 
 
+/* EVENT PROGRESS */
 
-// Leaderboard score simulation
-function updateScores(){
+let progress=0;
 
-let scores = document.querySelectorAll(".score")
+function updateProgress(){
 
-scores.forEach(score =>{
+const bar=document.getElementById("progressBar");
+if(!bar) return;
 
-let current = parseInt(score.innerText)
+progress+=5;
 
-let random = Math.floor(Math.random()*10)
+if(progress>100) progress=100;
 
-score.innerText = current + random
-
-})
+bar.style.width=progress+"%";
 
 }
 
-setInterval(updateScores,5000)
-
-
-
-// Robot Voice Welcome
-function robotSpeak(){
-
-let message = "Welcome to Tech Fest 2026. Please proceed to registration."
-
-let speech = new SpeechSynthesisUtterance(message)
-
-speech.rate = 0.9
-
-speech.pitch = 1.2
-
-speechSynthesis.speak(speech)
-
-}
-
-
-
-// Page Fade Animation
-document.addEventListener("DOMContentLoaded",()=>{
-
-document.body.style.opacity = 0
-
-setTimeout(()=>{
-
-document.body.style.transition = "opacity 1s"
-
-document.body.style.opacity = 1
-
-},100)
-
-})
+setInterval(updateProgress,4000);
