@@ -2,8 +2,11 @@
 <html>
 
 <head>
+
 <title>Live Coding Leaderboard</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -13,43 +16,28 @@
 <a href="index.html">Dashboard</a>
 <a href="leaderboard.html">Leaderboard</a>
 <a href="robot.html">Robot Greeter</a>
-<a href="website.html">Website</a>
+<a href="website.html">Event Website</a>
 
 </nav>
 
-<h1>🏆 Live Coding Leaderboard</h1>
-
-<div class="card">
+<h1>LIVE CODING LEADERBOARD</h1>
 
 <table>
 
+<thead>
 <tr>
-<th>Rank</th>
 <th>Team</th>
 <th>Score</th>
 </tr>
+</thead>
 
-<tr>
-<td>1</td>
-<td>Code Ninjas</td>
-<td>540</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>Byte Masters</td>
-<td>500</td>
-</tr>
-
-<tr>
-<td>3</td>
-<td>Debuggers</td>
-<td>460</td>
-</tr>
+<tbody id="leaderboard"></tbody>
 
 </table>
 
-</div>
 <script src="script.js"></script>
+<script src="matrix.js"></script>
+<script src="radar.js"></script>
 </body>
+
 </html>
